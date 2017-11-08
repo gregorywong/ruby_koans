@@ -14,6 +14,12 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "Each side should have a length greater than 0."
+  elsif a + b <= c || b + c <= a || c + a <= b
+    raise TriangleError, "Each side should be less than the sum of the other two sides."
+  end
+  
   matches = 0
   matches += 1 if a == b
   matches += 1 if b == c
